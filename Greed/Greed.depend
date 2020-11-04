@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1604450022 source:c:\users\pablo\desktop\prueba\greed\main.cpp
+	<iostream>
+	"Funciones.h"
+
+1604450067 c:\users\pablo\desktop\prueba\greed\funciones.h
+
+1604450022 source:c:\users\pablo\desktop\utn\repo\lab_1\greed\main.cpp
+	<iostream>
+	"Funciones.h"
+
+1604450067 c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.h
+
