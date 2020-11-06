@@ -1,5 +1,7 @@
 #pragma once
 
-void Menu();
+void menu(int [], char [], char[]);
+void dados(int [], int);
+void jugador1(int [], char []);
 
 
