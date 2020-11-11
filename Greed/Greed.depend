@@ -11,7 +11,30 @@
 
 1604450067 c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.h
 
-1604624239 source:e:\ejerciciosutn\lab_1\greed\funciones.cpp
+1604586557 source:e:\ejerciciosutn\lab_1\greed\funciones.cpp
+	<iostream>
+	"Funciones.h"
+	<ctime>
+	<cstdlib>
+	"rlutil.h"
+
+1604586557 e:\ejerciciosutn\lab_1\greed\funciones.h
+
+1604584109 e:\ejerciciosutn\lab_1\greed\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1604587374 source:e:\ejerciciosutn\lab_1\greed\main.cpp
 	<iostream>
 	<clocale>
 	"Funciones.h"
@@ -19,16 +42,24 @@
 	<cstdlib>
 	"rlutil.h"
 
-1604624194 source:e:\ejerciciosutn\lab_1\greed\main.cpp
+1605062774 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.cpp
+	<iostream>
+	<clocale>
+	"Funciones.h"
+	<ctime>
+	<cstdlib>
+	"rlutil.h"
+
+1605062396 c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.h
+
+1604618901 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\main.cpp
 	<iostream>
 	"Funciones.h"
 	<ctime>
 	<cstdlib>
 	"rlutil.h"
 
-1604624178 e:\ejerciciosutn\lab_1\greed\funciones.h
-
-1604590864 e:\ejerciciosutn\lab_1\greed\rlutil.h
+1604590610 c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\rlutil.h
 	<iostream>
 	<string>
 	<cstdio>
