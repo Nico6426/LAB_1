@@ -8,8 +8,17 @@ using namespace rlutil;
 
 int main(){
     setlocale(LC_ALL, "Spanish");
-    int topTen[10];
-    char nickJ1[11];
-    char nickJ2[11];
-    menu(topTen, nickJ1, nickJ2);
+    setColor(GREEN);
+    char presentacion[24] = "UTN PACHECO PRESENTA...";
+   gotoxy(20, 15);
+    for(int i=0; i<23; i++){
+        cout << presentacion[i];
+        msleep(100);
+    }
+    msleep(500);
+    cls();
+    gotoxy(20, 15);
+    cout << "Un trabajo de Chavero Eduardo y DeCecco Nicolas";
+    msleep(2000);
+    menu();
 }
