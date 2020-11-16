@@ -42,7 +42,7 @@
 	<cstdlib>
 	"rlutil.h"
 
-1605062774 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.cpp
+1605555873 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.cpp
 	<iostream>
 	<clocale>
 	"Funciones.h"
@@ -50,9 +50,9 @@
 	<cstdlib>
 	"rlutil.h"
 
-1605062396 c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.h
+1605555641 c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\funciones.h
 
-1604618901 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\main.cpp
+1605554828 source:c:\users\chave\desktop\pruebas codeblocks\parcial2\greed\main.cpp
 	<iostream>
 	"Funciones.h"
 	<ctime>
