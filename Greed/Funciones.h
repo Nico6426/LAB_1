@@ -12,4 +12,6 @@ void mayus(char[]);
 void mostrarMejor(char[], int);
 void mostrarNuevo(char[], int);
 void mostrarGanador(char[], int);
+void instrucciones();
+void creditos();
 

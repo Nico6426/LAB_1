@@ -7,82 +7,120 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 
-void menu(){
+void menu()
+{
     srand(time(NULL));
     char mejorPlayer[11];
     char nick1[11];
     char nick2[11];
     setlocale(LC_ALL, "Spanish");
-    setBackgroundColor(GREEN);
+    setBackgroundColor(LIGHTCYAN);
     cls();
-    setColor(YELLOW);
-    int opcion;
+    setColor(BLUE);
+    char opcion;
     int mayorPuntaje = 0;
-    cout<<"-------------------------------"<<endl<<endl;
-    cout<<"Bienvenido a GREED!"<<endl<<endl;
-    cout<<"-------------------------------"<<endl<<endl;
+    cout<<" -------------------------------"<<endl<<endl;
+    cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
+    cout<<" -------------------------------"<<endl<<endl;
     system("pause");
-    do{
+    do
+    {
         system("cls");
-        cout<<"Menu principal"<<endl<<"-------------------------------"<<endl;
-        cout<<"1) Modo UN jugador "<<endl;
-        cout<<"2) Modo DOS jugadores "<<endl;
-        cout<<"3) Mejor puntuacion"<<endl;
-        cout<<"4) INSTRUCCIONES "<<endl;
-        cout<<"5) Créditos "<<endl<<"-------------------------------"<<endl;
-        cout<<"6) Salir "<<endl<<endl;
+        gotoxy(40,4);
+        cout<<"*****************************************"<<endl;
+        gotoxy(40,5);
+        cout<<"|             Menu principal            |"<<endl;
+        gotoxy(40,6);
+        cout<<"|---------------------------------------|"<<endl;
+        gotoxy(40,7);
+        cout<<"|          1) Modo UN jugador           |"<<endl;
+        gotoxy(40,8);
+        cout<<"|          2) Modo DOS jugadores        |"<<endl;
+        gotoxy(40,9);
+        cout<<"|          3) Mejor puntuacion          |"<<endl;
+        gotoxy(40,10);
+        cout<<"|          4) Instrucciones             |"<<endl;
+        gotoxy(40,11);
+        cout<<"|          5) Créditos                  |"<<endl;
+        gotoxy(40,12);
+        cout<<"|---------------------------------------|"<<endl;
+        gotoxy(40,13);
+        cout<<"|          6) Salir                     |"<<endl;
+        gotoxy(40,14);
+        cout<<"|                                       |"<<endl;
+        gotoxy(40,15);
+        cout<<"*****************************************"<<endl;
         cin>>opcion;
-        while (opcion < 1 || opcion > 6){
-            cout << "Ingrese una opcion correcta: ";
-            cin >> opcion;
-        }
 
-        switch(opcion){
-            case 1:
-                singlePlayer(nick1, mejorPlayer, &mayorPuntaje);
+
+        switch(opcion)
+        {
+        case '1':
+            singlePlayer(nick1, mejorPlayer, &mayorPuntaje);
             break;
-            case 2:
-                multiPlayer(nick1, nick2, mejorPlayer, &mayorPuntaje);
+        case '2':
+            multiPlayer(nick1, nick2, mejorPlayer, &mayorPuntaje);
             break;
-            case 3:
-                mostrarMejor(mejorPlayer, mayorPuntaje);
+        case '3':
+            mostrarMejor(mejorPlayer, mayorPuntaje);
             break;
-            case 4:
+        case '4':
+            instrucciones();
             break;
-            case 5:
+        case '5':
+            creditos();
             break;
-            case 6:
+        case '6':
+            system("cls");
+            cout<<"Muchas gracias por jugar! :)"<<endl<<endl;
+            break;
+        default:
+            setColor(RED);
+            cout<<"Opción incorrecta"<<endl;
+            system("pause");
+            setColor(BLUE);
             break;
         }
-    }while(opcion!=6);
+    }
+    while(opcion!='6');
 }
 
-void dados(int vec[], int tam){
+void dados(int vec[], int tam)
+{
     srand(time(NULL));
-    for(int i=0; i<tam; i++){
-        vec[i] = rand() % 6 + 1;
+    for(int i=0; i<tam; i++)
+    {
+        vec[i] = 1 + rand() % (7 -1);
     }
 }
 
-void mostrar(int vec[], int tam){
-for(int i=0; i<tam; i++){
+void mostrar(int vec[], int tam)
+{
+    for(int i=0; i<tam; i++)
+    {
         cout << vec[i] << "   ";
-}
+    }
 }
 
-int sumar(int vec[], int tam){
+int sumar(int vec[], int tam)
+{
     int acu=0;
-    for (int i=0; i<tam; i++){
+    for (int i=0; i<tam; i++)
+    {
         acu+=vec[i];
     }
     return acu;
 }
 
-int eliminar(int vec1[], int tam1, int vec2[], int tam2){
+int eliminar(int vec1[], int tam1, int vec2[], int tam2)
+{
     int acu=0;
-    for(int i=0; i<tam1; i++){
-        for(int x=0; x<tam2; x++){
-            if (vec1[i]==vec2[x]){
+    for(int i=0; i<tam1; i++)
+    {
+        for(int x=0; x<tam2; x++)
+        {
+            if (vec1[i]==vec2[x])
+            {
                 vec1[i]=0;
                 acu++;
             }
@@ -91,21 +129,27 @@ int eliminar(int vec1[], int tam1, int vec2[], int tam2){
     return acu;
 }
 
-void ponerCero(int vec[], int tam){
-for(int i=0; i<tam; i++){
+void ponerCero(int vec[], int tam)
+{
+    for(int i=0; i<tam; i++)
+    {
         vec[i]=0;
-}
-}
-
-void mayus(char vec[]){
-for (int i=0; i<11; i++){
-    vec[i] = toupper(vec[i]);
-}
+    }
 }
 
-void mostrarMejor(char nombre[], int puntos){
-int colorF;
-for (int i=0; i<5; i++){
+void mayus(char vec[])
+{
+    for (int i=0; i<11; i++)
+    {
+        vec[i] = toupper(vec[i]);
+    }
+}
+
+void mostrarMejor(char nombre[], int puntos)
+{
+    int colorF;
+    for (int i=0; i<5; i++)
+    {
         colorF = rand() % 15 + 1;
         setBackgroundColor(colorF);
         system("cls");
@@ -115,14 +159,16 @@ for (int i=0; i<5; i++){
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
         msleep(500);
     }
-anykey();
-setBackgroundColor(GREEN);
-setColor(YELLOW);
+    anykey();
+    setBackgroundColor(LIGHTCYAN);
+    setColor(BLUE);
 }
 
-void mostrarNuevo(char nombre[], int puntos){
-int colorF;
-for (int i=0; i<5; i++){
+void mostrarNuevo(char nombre[], int puntos)
+{
+    int colorF;
+    for (int i=0; i<5; i++)
+    {
         colorF = rand() % 15 + 1;
         setBackgroundColor(colorF);
         system("cls");
@@ -132,30 +178,36 @@ for (int i=0; i<5; i++){
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
         msleep(500);
     }
-anykey();
-setBackgroundColor(GREEN);
-setColor(YELLOW);
+    anykey();
+    setBackgroundColor(LIGHTCYAN);
+    setColor(BLUE);
 }
 
-void mostrarGanador(char nombre[], int puntos){
-int colorF;
-for (int i=0; i<5; i++){
+void mostrarGanador(char nombre[], int puntos)
+{
+    int colorF;
+    for (int i=0; i<5; i++)
+    {
         colorF = rand() % 15 + 1;
         setBackgroundColor(colorF);
         system("cls");
         gotoxy(45, 10);
         cout << "** ¡¡ GANADOR !! **" << endl << endl;
         gotoxy(50, 13);
-        cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
+        cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl<<endl;
+        gotoxy(50, 14);
+        cout<<"-----FIN DEL JUEGO-----"<<endl;
+
         msleep(500);
     }
-anykey();
-setBackgroundColor(GREEN);
-setColor(YELLOW);
+    anykey();
+    setBackgroundColor(LIGHTCYAN);
+    setColor(BLUE);
 }
 
-void singlePlayer(char nick1[], char  mejorP[], int *mayor){
-    setBackgroundColor(WHITE);
+void singlePlayer(char nick1[], char  mejorP[], int *mayor)
+{
+    setBackgroundColor(GREY);
     setColor(BLACK);
     system("cls");
     const int T=5, B=2;
@@ -166,72 +218,92 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor){
     cout << "Ingrese su Nick Name: ";
     cin >> nick1;
     mayus(nick1);
-for (int i=1; i<=3; i++)
+    for (int i=1; i<=3; i++)
     {
-    int contador = 0, acuRonda = 0, bloq = 0;
-    setColor(GREEN);
-    system("cls");
-    cout << "Ronda " << i << endl << endl;
-    setColor(BLACK);
-    dados(bloqueadores, B);
-    cout << "BLOQUEADORES            ";
-    mostrar(bloqueadores, B);
-    cout << endl << endl;
+        int contador = 0, acuRonda = 0, bloq = 0;
+        setColor(RED);
+        system("cls");
+        gotoxy(20,2);
+        cout << "<<RONDA " << i <<">>"<<endl<<endl;
+        setColor(BLACK);
+        dados(bloqueadores, B);
+        cout<< "-----BLOQUEADORES-----"<<endl;
+        cout<<"|                    |"<<endl;
+        cout<<"|                    |"<<endl;
+        cout<<"|";
+        gotoxy(9,7);
+        mostrar(bloqueadores, B);
+        cout<<"     |"<<endl;
+        cout<<"|                    |"<<endl;
+        cout<<"|                    |"<<endl;
+        cout<<"----------------------"<<endl;
+        cout << endl << endl;
 
         do
         {
-        contador++;
-        cout << "Tiro #" << contador << ":   ";
-        dados(tirada, T-bloq);
-        mostrar(tirada, T-bloq);
-        bloq += eliminar(tirada, T, bloqueadores, B);
-        acuRonda += sumar(tirada, T);
-        ponerCero(tirada, T);
+            contador++;
+            cout << "Tiro #" << contador << ":   ";
+            dados(tirada, T-bloq);
+            mostrar(tirada, T-bloq);
+            bloq += eliminar(tirada, T, bloqueadores, B);
+            acuRonda += sumar(tirada, T);
+            ponerCero(tirada, T);
 
-        if(bloq >= T)
+            if(bloq >= T)
             {
-            setColor(RED);
-            cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
-            setColor(BLACK);
-            seguir = 'N';
-            acuRonda = 0;
-        }
-        else
+                setColor(RED);
+                cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
+                setColor(BLACK);
+                seguir = 'N';
+                acuRonda = 0;
+            }
+            else
             {
-            cout << "¿Desea seguir jugando?  (S/N)   ";
-            cin >> seguir;
-            seguir = toupper(seguir);
+                cout << "¿Desea seguir jugando?  (S/N)   ";
+                cin >> seguir;
+                seguir = toupper(seguir);
+                while(seguir != 'N' && seguir != 'S')
+                {
+                    cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
+                    cout << "¿Desea seguir jugando?  (S/N)   ";
+                    cin >> seguir;
+                }
+            }
         }
+        while (seguir == 'S');
+        acuTotal+=acuRonda;
+        setColor(BLUE);
+        cout << endl << "Resultados RONDA " << i << " para ";
+        cout << nick1 << endl << endl;
+        setColor(BLACK);
+        cout << "Esta ronda: " << acuRonda << endl;
+        cout << "Acumulado parcial: " << acuTotal << endl;
+        system("pause");
     }
-    while (seguir == 'S');
-    acuTotal+=acuRonda;
+    system("cls");
+    cout << "** PUNTAJE FINAL **" << endl << endl;
+    cout << nick1 << ": " << acuTotal << endl << endl;
+
+    if (acuTotal > *mayor)
+    {
+        *mayor = acuTotal;
+        strcpy(mejorP, nick1);
+        mostrarNuevo(mejorP, *mayor);
+    }
+    else
+    {
+        cout << nick1 << endl;
+        cout << "PUNTAJE FINAL: " << acuTotal << endl << endl;
+        cout<<"-----FIN DEL JUEGO-----"<<endl;
+        system("pause");
+    }
+    setBackgroundColor(LIGHTCYAN);
+    cls();
     setColor(BLUE);
-    cout << endl << "Resultados RONDA " << i << " para ";
-    cout << nick1 << endl << endl;
-    setColor(BLACK);
-    cout << "Esta ronda: " << acuRonda << endl;
-    cout << "Acumulado parcial: " << acuTotal << endl;
-    system("pause");
-}
-cout << "** PUNTAJE FINAL **" << endl << endl;
-cout << nick1 << ": " << acuTotal << endl << endl;
-
-if (acuTotal > *mayor){
-    *mayor = acuTotal;
-    strcpy(mejorP, nick1);
-    mostrarNuevo(mejorP, *mayor);
-}
-else{
-    cout << nick1 << endl;
-    cout << "PUNTAJE FINAL: " << acuTotal << endl << endl;
-    system("pause");
-}
-setBackgroundColor(GREEN);
-cls();
-setColor(YELLOW);
 }
 
-void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor){
+void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
+{
     setBackgroundColor(WHITE);
     setColor(BLACK);
     system("cls");
@@ -249,21 +321,37 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor){
     cin >> nick2;
     mayus(nick2);
 
-for (int i=1; i<=3; i++){
-    for (int x=1; x<3; x++){
-            if (x==1){
+    for (int i=1; i<=3; i++)
+    {
+        for (int x=1; x<3; x++)
+        {
+            if (x==1)
+            {
                 int contador=0, acuRonda = 0, bloq = 0;
                 system("cls");
-                setColor(GREEN);
-                cout << "<<Ronda" << i << ">>" << endl;
-                cout << "**PLAYER: " << x << "**" << endl << endl;
+                setColor(RED);
+                system("cls");
+                gotoxy(20,2);
+                cout << "<<RONDA " << i <<">>"<<endl<<endl;
+                gotoxy(19,3);
+                cout << "**PLAYER: " << nick1 << "**" << endl << endl;
                 setColor(BLACK);
                 dados(bloqueadores, B);
-                cout << "BLOQUEADORES            ";
+                cout<< "-----BLOQUEADORES-----"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|";
+                gotoxy(9,7);
                 mostrar(bloqueadores, B);
+                cout<<"     |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"----------------------"<<endl;
                 cout << endl << endl;
 
-                do{
+                do
+                {
                     contador++;
                     cout << "Tiro #" << contador << ":   ";
                     dados(tirada, T-bloq);
@@ -271,19 +359,28 @@ for (int i=1; i<=3; i++){
                     bloq += eliminar(tirada, T, bloqueadores, B);
                     acuRonda += sumar(tirada, T);
                     ponerCero(tirada, T);
-                    if(bloq >= T){
+                    if(bloq >= T)
+                    {
                         setColor(RED);
                         cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
                         setColor(BLACK);
                         seguir = 'N';
                         acuRonda = 0;
                     }
-                    else{
-                    cout << "¿Desea seguir jugando?  (S/N)  ";
-                    cin >> seguir;
-                    seguir = toupper(seguir);
+                    else
+                    {
+                        cout << "¿Desea seguir jugando?  (S/N)  ";
+                        cin >> seguir;
+                        seguir = toupper(seguir);
+                        while(seguir != 'N' && seguir != 'S')
+                        {
+                            cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
+                            cout << "¿Desea seguir jugando?  (S/N)   ";
+                            cin >> seguir;
+                        }
                     }
-                }while (seguir == 'S');
+                }
+                while (seguir == 'S');
 
                 acuTotalP1+=acuRonda;
 
@@ -295,19 +392,33 @@ for (int i=1; i<=3; i++){
                 cout << "Acumulado parcial: " << acuTotalP1 << endl;
                 system("pause");
             }
-            else {
-             int contador=0, acuRonda = 0, bloq = 0;
+            else
+            {
+                int contador=0, acuRonda = 0, bloq = 0;
                 system("cls");
-                setColor(GREEN);
-                cout << "<<Ronda" << i << ">>" << endl;
-                cout << "**PLAYER: " << x << "**" << endl << endl;
+                setColor(RED);
+                system("cls");
+                gotoxy(20,2);
+                cout << "<<RONDA " << i <<">>"<< endl;
+                gotoxy(19,3);
+                cout << "**PLAYER: " << nick2 << "**" << endl << endl;
                 setColor(BLACK);
                 dados(bloqueadores, B);
-                cout << "BLOQUEADORES            ";
+                cout<< "-----BLOQUEADORES-----"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|";
+                gotoxy(9,7);
                 mostrar(bloqueadores, B);
+                cout<<"     |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"|                    |"<<endl;
+                cout<<"----------------------"<<endl;
                 cout << endl << endl;
 
-                do{
+                do
+                {
                     contador++;
                     cout << "Tiro #" << contador << ":   ";
                     dados(tirada, T-bloq);
@@ -315,19 +426,28 @@ for (int i=1; i<=3; i++){
                     bloq += eliminar(tirada, T, bloqueadores, B);
                     acuRonda += sumar(tirada, T);
                     ponerCero(tirada, T);
-                    if(bloq >= T){
+                    if(bloq >= T)
+                    {
                         setColor(RED);
                         cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
                         setColor(BLACK);
                         seguir = 'N';
                         acuRonda = 0;
                     }
-                    else{
-                    cout << "¿Desea seguir jugando?    ";
-                    cin >> seguir;
-                    seguir = toupper(seguir);
+                    else
+                    {
+                        cout << "¿Desea seguir jugando?  (S/N)  ";
+                        cin >> seguir;
+                        seguir = toupper(seguir);
+                        while(seguir != 'N' && seguir != 'S')
+                        {
+                            cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
+                            cout << "¿Desea seguir jugando?  (S/N)   ";
+                            cin >> seguir;
+                        }
                     }
-                }while (seguir == 'S');
+                }
+                while (seguir == 'S');
 
                 acuTotalP2+=acuRonda;
                 setColor(RED);
@@ -338,25 +458,55 @@ for (int i=1; i<=3; i++){
                 cout << "Acumulado parcial: " << acuTotalP2 << endl;
                 system("pause");
             }
-}
-}
-if (acuTotalP1>acuTotalP2)
-{
-    mostrarGanador(nick1, acuTotalP1);
-    if (acuTotalP1 > *mayor){
-    *mayor = acuTotalP1;
-    strcpy(mejorP, nick1);
-    mostrarNuevo(mejorP, *mayor);
-}
-}
-else
-{
-    mostrarGanador(nick2, acuTotalP2);
-   if (acuTotalP2 > *mayor){
-    *mayor = acuTotalP2;
-    strcpy(mejorP, nick2);
-    mostrarNuevo(mejorP, *mayor);
-}
-}
+        }
+    }
+    if (acuTotalP1>acuTotalP2)
+    {
+        mostrarGanador(nick1, acuTotalP1);
+        if (acuTotalP1 > *mayor)
+        {
+            *mayor = acuTotalP1;
+            strcpy(mejorP, nick1);
+            mostrarNuevo(mejorP, *mayor);
+        }
+    }
+    else
+    {
+        mostrarGanador(nick2, acuTotalP2);
+        if (acuTotalP2 > *mayor)
+        {
+            *mayor = acuTotalP2;
+            strcpy(mejorP, nick2);
+            mostrarNuevo(mejorP, *mayor);
+        }
+    }
 }
 
+void instrucciones()
+{
+    system("cls");
+    cout<<"INSTRUCCIONES"<<endl<<endl;
+    cout<<"--------------------------------------------------------------------------------"<<endl<<endl;
+    cout<<"GREED es juego de dados que consiste en una serie de tres rondas en las cuales "<<endl<<
+        "los jugadores deberán tirar dos dados llamados Bloqueadores y numerosas tiradas de hasta cinco dados."<<endl<<endl;
+    cout<<"Por cada tirada de una ronda se deberán sumar todos los dados de la tirada cuyos valores "<<endl<<"no coincidan con los dados bloqueadores."<<endl<<endl;
+    cout<<"Cada dado cuyo valor sea igual al de un dado bloqueador es un dado que no podrá "<<endl<<"utilizarse en la siguiente tirada disminuyendo así la cantidad de dados a tirar."<<endl<<endl;
+    cout<<"Luego de cada tirada, se le debe preguntar al usuario si desea continuar tirando o no."<<endl<<"En caso negativo, se sumarán los puntos acumulados en la ronda y será el turno del próximo jugador"<<endl<<"(en el modo de dos jugadores) o comenzará la próxima ronda (en el modo de un jugador)."<<endl<<endl;
+    cout<<"En caso de que el jugador decida seguir jugando en la ronda, se tirarán nuevamente los "<<endl<<"dados correspondientes y se procederá a la acumulación de puntos de esa tirada y así hasta que termine la ronda."<<endl<<endl;
+    cout<<"Una ronda también puede finalizar si el jugador se queda sin dados disponibles para tirar"<<endl<<"(recordar que cada dado igual a un dado bloqueador se elimina para la próxima tirada),"<<endl<<"con la diferencia, de que si un jugador en una ronda se queda sin dados disponibles,"<<endl<<"el puntaje acumulado para esa ronda será de cero."<<endl<<endl;
+    cout<<"--------------------------------------------------------------------------------"<<endl<<endl;
+
+    system("pause");
+}
+void creditos()
+{
+    system("cls");
+
+    cout<<"----------------------"<<endl;
+    cout<<"       CREDITOS       "<<endl;
+    cout<<"----------------------"<<endl<<endl<<endl;
+
+    cout<<"EQUIPO: CHAVEDEC"<<endl<<endl;
+    cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: "<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
+    system("pause");
+}

@@ -8,7 +8,7 @@ using namespace rlutil;
 
 int main(){
     setlocale(LC_ALL, "Spanish");
-    setColor(GREEN);
+    setColor(LIGHTCYAN);
     char presentacion[24] = "UTN PACHECO PRESENTA...";
    gotoxy(20, 15);
     for(int i=0; i<23; i++){
@@ -18,7 +18,7 @@ int main(){
     msleep(500);
     cls();
     gotoxy(20, 15);
-    cout << "Un trabajo de Chavero Eduardo y DeCecco Nicolas";
+    cout << "Un trabajo de Chavero Eduardo y De Cecco Nicolás";
     msleep(2000);
     menu();
 }
