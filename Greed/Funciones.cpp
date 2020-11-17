@@ -5,6 +5,7 @@ using namespace std;
 #include <ctime>
 #include <cstdlib>
 #include "rlutil.h"
+#include <windows.h>
 using namespace rlutil;
 
 void menu()
@@ -22,6 +23,7 @@ void menu()
     cout<<" -------------------------------"<<endl<<endl;
     cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
     cout<<" -------------------------------"<<endl<<endl;
+    sonidoInicio();
     system("pause");
     do
     {
@@ -90,7 +92,7 @@ void dados(int vec[], int tam)
     srand(time(NULL));
     for(int i=0; i<tam; i++)
     {
-        vec[i] = 1 + rand() % (7 -1);
+        vec[i] = 1 + rand() % 6;
     }
 }
 
@@ -154,6 +156,8 @@ void mostrarMejor(char nombre[], int puntos)
         setBackgroundColor(colorF);
         system("cls");
         gotoxy(45, 10);
+        if(i==1)
+            sonidoMejorPuntaje();
         cout << "** ¡¡MEJOR PUNTAJE!! **" << endl << endl;
         gotoxy(50, 13);
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
@@ -173,6 +177,8 @@ void mostrarNuevo(char nombre[], int puntos)
         setBackgroundColor(colorF);
         system("cls");
         gotoxy(45, 10);
+        if(i==1)
+            sonidoMejorPuntaje();
         cout << "** ¡¡ NUEVO MEJOR PUNTAJE!! **" << endl << endl;
         gotoxy(50, 13);
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
@@ -192,6 +198,8 @@ void mostrarGanador(char nombre[], int puntos)
         setBackgroundColor(colorF);
         system("cls");
         gotoxy(45, 10);
+        if(i==1)
+            sonidoDescendente();
         cout << "** ¡¡ GANADOR !! **" << endl << endl;
         gotoxy(50, 13);
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl<<endl;
@@ -207,6 +215,7 @@ void mostrarGanador(char nombre[], int puntos)
 
 void singlePlayer(char nick1[], char  mejorP[], int *mayor)
 {
+    sonidoAscendente();
     setBackgroundColor(GREY);
     setColor(BLACK);
     system("cls");
@@ -239,10 +248,11 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
         cout<<"----------------------"<<endl;
         cout << endl << endl;
 
+        system("pause");
         do
         {
             contador++;
-            cout << "Tiro #" << contador << ":   ";
+            cout<<endl<< "Tiro #" << contador << ":   ";
             dados(tirada, T-bloq);
             mostrar(tirada, T-bloq);
             bloq += eliminar(tirada, T, bloqueadores, B);
@@ -252,6 +262,9 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
             if(bloq >= T)
             {
                 setColor(RED);
+                Beep(75,250);
+                Beep(75,250);
+                Beep(75,300);
                 cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
                 setColor(BLACK);
                 seguir = 'N';
@@ -292,6 +305,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
     }
     else
     {
+        sonidoDescendente();
         cout << nick1 << endl;
         cout << "PUNTAJE FINAL: " << acuTotal << endl << endl;
         cout<<"-----FIN DEL JUEGO-----"<<endl;
@@ -304,6 +318,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
 
 void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
 {
+    sonidoAscendente();
     setBackgroundColor(WHITE);
     setColor(BLACK);
     system("cls");
@@ -362,6 +377,9 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                     if(bloq >= T)
                     {
                         setColor(RED);
+                        Beep(75,250);
+                        Beep(75,250);
+                        Beep(75,300);
                         cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
                         setColor(BLACK);
                         seguir = 'N';
@@ -429,6 +447,9 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                     if(bloq >= T)
                     {
                         setColor(RED);
+                        Beep(75,250);
+                        Beep(75,250);
+                        Beep(75,300);
                         cout << "¡¡Se perdieron todos los puntos de esta ronda!!" << endl << endl;
                         setColor(BLACK);
                         seguir = 'N';
@@ -509,4 +530,48 @@ void creditos()
     cout<<"EQUIPO: CHAVEDEC"<<endl<<endl;
     cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: "<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
     system("pause");
+}
+void sonidoAscendente()
+{
+    for(int i=50; i<120; i+=10)
+    {
+        Beep(i,100);
+    }
+}
+
+void sonidoDescendente()
+{
+    for(int i=120; i>50; i-=10)
+    {
+        Beep(i,70);
+    }
+}
+
+void sonidoMejorPuntaje()
+{
+    Beep(300, 70);
+    Beep(220, 70);
+    Beep(270, 70);
+    Beep(150, 70);
+    Beep(180, 70);
+    Beep(80, 70);
+    Beep(110, 70);
+}
+
+void sonidoInicio()
+{
+    Beep (330,100);
+    Sleep(70);
+    Beep (330,100);
+    Sleep(210);
+    Beep (330,100);
+    Sleep(210);
+    Beep (262,100);
+    Sleep(70);
+    Beep (330,100);
+    Sleep(210);
+    Beep (392,100);
+    Sleep(490);
+    Beep (196,200);
+    Sleep(490);
 }

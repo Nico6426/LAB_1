@@ -5,14 +5,14 @@
 
 1604450067 c:\users\pablo\desktop\prueba\greed\funciones.h
 
-1605599110 source:c:\users\pablo\desktop\utn\repo\lab_1\greed\main.cpp
+1605613367 source:c:\users\pablo\desktop\utn\repo\lab_1\greed\main.cpp
 	<iostream>
 	"Funciones.h"
 	<ctime>
 	<cstdlib>
 	"rlutil.h"
 
-1605592729 c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.h
+1605612676 c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.h
 
 1604586557 source:e:\ejerciciosutn\lab_1\greed\funciones.cpp
 	<iostream>
@@ -75,13 +75,14 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1605599832 source:c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.cpp
+1605613205 source:c:\users\pablo\desktop\utn\repo\lab_1\greed\funciones.cpp
 	<iostream>
 	<clocale>
 	"Funciones.h"
 	<ctime>
 	<cstdlib>
 	"rlutil.h"
+	<windows.h>
 
 1604627781 c:\users\pablo\desktop\utn\repo\lab_1\greed\rlutil.h
 	<iostream>

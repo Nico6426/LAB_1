@@ -14,4 +14,8 @@ void mostrarNuevo(char[], int);
 void mostrarGanador(char[], int);
 void instrucciones();
 void creditos();
+void sonidoAscendente();
+void sonidoDescendente();
+void sonidoMejorPuntaje();
+void sonidoInicio();
 
