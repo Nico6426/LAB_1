@@ -18,4 +18,8 @@ void sonidoAscendente();
 void sonidoDescendente();
 void sonidoMejorPuntaje();
 void sonidoInicio();
+void musicaCreditos1();
+void musicaCreditos();
+void musicaInstrucciones();
+
 

@@ -521,6 +521,7 @@ void instrucciones()
     cout<<"Una ronda también puede finalizar si el jugador se queda sin dados disponibles para tirar"<<endl<<"(recordar que cada dado igual a un dado bloqueador se elimina para la próxima tirada),"<<endl<<"con la diferencia, de que si un jugador en una ronda se queda sin dados disponibles,"<<endl<<"el puntaje acumulado para esa ronda será de cero."<<endl<<endl;
     cout<<"--------------------------------------------------------------------------------"<<endl<<endl;
 
+    musicaInstrucciones();
     system("pause");
 }
 void creditos()
@@ -530,9 +531,10 @@ void creditos()
     cout<<"----------------------"<<endl;
     cout<<"       CREDITOS       "<<endl;
     cout<<"----------------------"<<endl<<endl<<endl;
-
+    musicaCreditos1();
     cout<<"EQUIPO: CHAVEDEC"<<endl<<endl;
     cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: "<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
+    musicaCreditos();
     system("pause");
 }
 void sonidoAscendente()
@@ -578,4 +580,47 @@ void sonidoInicio()
     Sleep(490);
     Beep (196,200);
     Sleep(490);
+}
+
+void musicaCreditos1()
+{
+    Beep(220,300);
+    Beep(294,300);
+    Beep(294,300);
+    Beep(370,300);
+    Beep(494,300);
+    Beep(370,300);
+    Beep(440,800);
+
+}
+
+void musicaCreditos()
+{
+  Beep(440,300);
+  Beep(494,300);
+  Beep(440,300);
+  Beep(370,300);
+  Beep(392,300);
+  Beep(370,300);
+  Beep(330,800);
+}
+
+void musicaInstrucciones()
+{
+    Beep(247,300);
+  Beep(330,300);
+  Beep(330,300);
+  Beep(370,300);
+  Beep(555,300);
+  Beep(555,300);
+  Beep(494,300);
+  Beep(440,300);
+  Beep(392,800);
+  Beep(392,300);
+  Beep(370,300);
+  Beep(247,800);
+  Beep(278,300);
+  Beep(294,300);
+  Beep(330,1500);
+
 }

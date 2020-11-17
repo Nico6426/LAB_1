@@ -6,12 +6,14 @@ using namespace std;
 #include "rlutil.h"
 using namespace rlutil;
 
-int main(){
+int main()
+{
     setlocale(LC_ALL, "Spanish");
     setColor(LIGHTCYAN);
     char presentacion[24] = "UTN PACHECO PRESENTA...";
-   gotoxy(20, 15);
-    for(int i=0; i<23; i++){
+    gotoxy(20, 15);
+    for(int i=0; i<23; i++)
+    {
         cout << presentacion[i];
         msleep(100);
     }
