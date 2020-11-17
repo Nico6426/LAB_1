@@ -280,6 +280,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
                     cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
                     cout << "¿Desea seguir jugando?  (S/N)   ";
                     cin >> seguir;
+                    seguir = toupper(seguir);
                 }
             }
         }
@@ -397,6 +398,8 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                             cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
                             cout << "¿Desea seguir jugando?  (S/N)   ";
                             cin >> seguir;
+                            seguir = toupper(seguir);
+
                         }
                     }
                 }
@@ -469,6 +472,8 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                             cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
                             cout << "¿Desea seguir jugando?  (S/N)   ";
                             cin >> seguir;
+                            seguir = toupper(seguir);
+
                         }
                     }
                 }
