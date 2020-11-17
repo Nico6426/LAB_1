@@ -365,6 +365,8 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                 cout<<"----------------------"<<endl;
                 cout << endl << endl;
 
+                system("pause");
+
                 do
                 {
                     contador++;
@@ -434,6 +436,8 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                 cout<<"|                    |"<<endl;
                 cout<<"----------------------"<<endl;
                 cout << endl << endl;
+
+                system("pause");
 
                 do
                 {
