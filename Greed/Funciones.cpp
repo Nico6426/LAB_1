@@ -52,7 +52,7 @@ void menu()
         cout<<"|                                       |"<<endl;
         gotoxy(40,15);
         cout<<"*****************************************"<<endl;
-        cin>>opcion;
+        opcion = getch();
 
 
         switch(opcion)
@@ -297,6 +297,8 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
     system("cls");
     cout << "** PUNTAJE FINAL **" << endl << endl;
     cout << nick1 << ": " << acuTotal << endl << endl;
+    cout<<"-----FIN DEL JUEGO-----"<<endl;
+    system("pause");
 
     if (acuTotal > *mayor)
     {
@@ -304,14 +306,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
         strcpy(mejorP, nick1);
         mostrarNuevo(mejorP, *mayor);
     }
-    else
-    {
-        sonidoDescendente();
-        cout << nick1 << endl;
-        cout << "PUNTAJE FINAL: " << acuTotal << endl << endl;
-        cout<<"-----FIN DEL JUEGO-----"<<endl;
-        system("pause");
-    }
+
     setBackgroundColor(LIGHTCYAN);
     cls();
     setColor(BLUE);
@@ -529,6 +524,7 @@ void instrucciones()
     musicaInstrucciones();
     system("pause");
 }
+
 void creditos()
 {
     system("cls");
@@ -537,11 +533,12 @@ void creditos()
     cout<<"       CREDITOS       "<<endl;
     cout<<"----------------------"<<endl<<endl<<endl;
     musicaCreditos1();
-    cout<<"EQUIPO: CHAVEDEC"<<endl<<endl;
-    cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: "<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
+    cout<<"EQUIPO: ChavCecco"<<endl<<endl;
+    cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: 24171"<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
     musicaCreditos();
     system("pause");
 }
+
 void sonidoAscendente()
 {
     for(int i=50; i<120; i+=10)

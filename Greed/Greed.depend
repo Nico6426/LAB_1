@@ -98,3 +98,35 @@
 	<sys/types.h>
 	<sys/time.h>
 
+1605628666 source:e:\tpintegrador\greed\greed\funciones.cpp
+	<iostream>
+	<clocale>
+	"Funciones.h"
+	<ctime>
+	<cstdlib>
+	"rlutil.h"
+	<windows.h>
+
+1605621714 e:\tpintegrador\greed\greed\funciones.h
+
+1605575995 e:\tpintegrador\greed\greed\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1605623684 source:e:\tpintegrador\greed\greed\main.cpp
+	<iostream>
+	"Funciones.h"
+	<ctime>
+	<cstdlib>
+	"rlutil.h"
+
