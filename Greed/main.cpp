@@ -10,7 +10,7 @@ int main()
 {
     setlocale(LC_ALL, "Spanish");
     setColor(WHITE);
-    /*char presentacion[24] = "UTN PACHECO PRESENTA...";
+    char presentacion[24] = "UTN PACHECO PRESENTA...";
     gotoxy(20, 15);
     for(int i=0; i<23; i++)
     {
@@ -21,7 +21,7 @@ int main()
     cls();
     gotoxy(20, 15);
     cout << "Un trabajo de Chavero Eduardo y De Cecco Nicolás";
-    msleep(2000);*/
+    msleep(2000);
     intro();
     menu();
 }
