@@ -20,11 +20,7 @@ void menu()
     setColor(BLUE);
     char opcion;
     int mayorPuntaje = 0;
-    cout<<" -------------------------------"<<endl<<endl;
-    cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
-    cout<<" -------------------------------"<<endl<<endl;
-    sonidoInicio();
-    system("pause");
+
     do
     {
         system("cls");
@@ -102,6 +98,7 @@ void mostrar(int vec[], int tam)
     {
         cout << vec[i] << "   ";
     }
+
 }
 
 int sumar(int vec[], int tam)
@@ -160,10 +157,22 @@ void mostrarMejor(char nombre[], int puntos)
             sonidoMejorPuntaje();
         cout << "** ¡¡MEJOR PUNTAJE!! **" << endl << endl;
         gotoxy(50, 13);
-        cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
-        msleep(500);
+        if(puntos == 0)
+        {
+            cout<<"No hay mejor puntaje guardado aun!!"<<endl;
+            msleep(500);
+
+        }
+        else
+        {
+            cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
+            msleep(500);
+        }
+
+
     }
-    anykey();
+    cout<<endl<<endl<<endl;
+    system("pause");
     setBackgroundColor(LIGHTCYAN);
     setColor(BLUE);
 }
@@ -184,7 +193,8 @@ void mostrarNuevo(char nombre[], int puntos)
         cout << nombre << " CON " << puntos << " PUNTOS" << endl << endl;
         msleep(500);
     }
-    anykey();
+    cout<<endl<<endl<<endl;
+    system("pause");
     setBackgroundColor(LIGHTCYAN);
     setColor(BLUE);
 }
@@ -225,8 +235,15 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
     char seguir;
     int acuTotal = 0;
     cout << "Ingrese su Nick Name: ";
+    gotoxy(1,25);
+    cout<<"Ingrese X para salir al menu principal"<<endl;
+    gotoxy(1,2);
     cin >> nick1;
     mayus(nick1);
+    if(nick1[0] == 'X')
+    {
+        menu();
+    }
     for (int i=1; i<=3; i++)
     {
         int contador = 0, acuRonda = 0, bloq = 0;
@@ -247,6 +264,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
         cout<<"|                    |"<<endl;
         cout<<"----------------------"<<endl;
         cout << endl << endl;
+
 
         system("pause");
         do
@@ -272,15 +290,25 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
             }
             else
             {
-                cout << "¿Desea seguir jugando?  (S/N)   ";
+                cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                cout<<"(X Para salir al menu principal)"<<endl<<endl;
                 cin >> seguir;
                 seguir = toupper(seguir);
+
+                if(seguir == 'X')
+                {
+                    menu();
+                }
                 while(seguir != 'N' && seguir != 'S')
                 {
                     cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
-                    cout << "¿Desea seguir jugando?  (S/N)   ";
+                    cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                    cout<<"(X Para salir al menu principal)"<<endl<<endl;
                     cin >> seguir;
-                    seguir = toupper(seguir);
+                    if(seguir == 'X')
+                    {
+                        menu();
+                    }
                 }
             }
         }
@@ -295,6 +323,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
         system("pause");
     }
     system("cls");
+    sonidoDescendente();
     cout << "** PUNTAJE FINAL **" << endl << endl;
     cout << nick1 << ": " << acuTotal << endl << endl;
     cout<<"-----FIN DEL JUEGO-----"<<endl;
@@ -326,11 +355,23 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
     int acuTotalP1 = 0, acuTotalP2 = 0;;
 
     cout << "Ingrese el nick Player 1: ";
+    gotoxy(1,25);
+    cout<<"Ingrese X para salir al menu principal"<<endl;
+    gotoxy(1,2);
     cin >> nick1;
     mayus(nick1);
+    if(nick1[0] == 'X')
+    {
+        menu();
+    }
     cout << "Ingrese el nick Player 2: ";
     cin >> nick2;
     mayus(nick2);
+    if(nick2[0] == 'X')
+    {
+        menu();
+    }
+
 
     for (int i=1; i<=3; i++)
     {
@@ -385,15 +426,25 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                     }
                     else
                     {
-                        cout << "¿Desea seguir jugando?  (S/N)  ";
+                        cout << "¿Desea seguir lanzando los dados?  (S/N)  "<<endl;
+                        cout<<"(X Para salir al menu principal)"<<endl<<endl;
                         cin >> seguir;
                         seguir = toupper(seguir);
+                        if(seguir == 'X')
+                        {
+                            menu();
+                        }
                         while(seguir != 'N' && seguir != 'S')
                         {
                             cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
-                            cout << "¿Desea seguir jugando?  (S/N)   ";
+                            cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                            cout<<"(X Para salir al menu principal)"<<endl<<endl;
                             cin >> seguir;
                             seguir = toupper(seguir);
+                            if(seguir == 'X')
+                            {
+                                menu();
+                            }
 
                         }
                     }
@@ -598,31 +649,41 @@ void musicaCreditos1()
 
 void musicaCreditos()
 {
-  Beep(440,300);
-  Beep(494,300);
-  Beep(440,300);
-  Beep(370,300);
-  Beep(392,300);
-  Beep(370,300);
-  Beep(330,800);
+    Beep(440,300);
+    Beep(494,300);
+    Beep(440,300);
+    Beep(370,300);
+    Beep(392,300);
+    Beep(370,300);
+    Beep(330,800);
 }
 
 void musicaInstrucciones()
 {
     Beep(247,300);
-  Beep(330,300);
-  Beep(330,300);
-  Beep(370,300);
-  Beep(555,300);
-  Beep(555,300);
-  Beep(494,300);
-  Beep(440,300);
-  Beep(392,800);
-  Beep(392,300);
-  Beep(370,300);
-  Beep(247,800);
-  Beep(278,300);
-  Beep(294,300);
-  Beep(330,1500);
+    Beep(330,300);
+    Beep(330,300);
+    Beep(370,300);
+    Beep(555,300);
+    Beep(555,300);
+    Beep(494,300);
+    Beep(440,300);
+    Beep(392,800);
+    Beep(392,300);
+    Beep(370,300);
+    Beep(247,800);
+    Beep(278,300);
+    Beep(294,300);
+    Beep(330,1500);
 
+}
+
+void intro()
+{
+    setColor(LIGHTCYAN);
+    cout<<" -------------------------------"<<endl<<endl;
+    cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
+    cout<<" -------------------------------"<<endl<<endl;
+    sonidoInicio();
+    system("pause");
 }

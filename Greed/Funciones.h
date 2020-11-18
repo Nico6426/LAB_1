@@ -21,5 +21,6 @@ void sonidoInicio();
 void musicaCreditos1();
 void musicaCreditos();
 void musicaInstrucciones();
+void intro();
 
 
