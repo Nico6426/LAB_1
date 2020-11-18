@@ -586,7 +586,10 @@ void creditos()
     musicaCreditos1();
     cout<<"EQUIPO: ChavCecco"<<endl<<endl;
     cout<<"Integrantes: "<<endl<<endl<<"Eduardo Chavero - Legajo: 24171"<<endl<<endl<<"Nicolás De Cecco - Legajo: 21834"<<endl<<endl;
-    musicaCreditos();
+    cout<<"Carrera: TUP"<<endl<<endl;
+    cout<<"Materia: LAB I"<<endl<<endl;
+    cout<<"----------------------"<<endl<<endl;
+    musicaCreditos2();
     system("pause");
 }
 
@@ -647,7 +650,7 @@ void musicaCreditos1()
 
 }
 
-void musicaCreditos()
+void musicaCreditos2()
 {
     Beep(440,300);
     Beep(494,300);
@@ -680,7 +683,9 @@ void musicaInstrucciones()
 
 void intro()
 {
-    setColor(LIGHTCYAN);
+    setBackgroundColor(LIGHTCYAN);
+    setColor(BLUE);
+    cls();
     cout<<" -------------------------------"<<endl<<endl;
     cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
     cout<<" -------------------------------"<<endl<<endl;
