@@ -8,7 +8,7 @@ using namespace std;
 #include <windows.h>
 using namespace rlutil;
 
-void menu()
+int menu()
 {
     srand(time(NULL));
     char mejorPlayer[11];
@@ -20,6 +20,7 @@ void menu()
     setColor(BLUE);
     char opcion;
     int mayorPuntaje = 0;
+    bool original=1;
 
     do
     {
@@ -71,6 +72,7 @@ void menu()
         case '6':
             system("cls");
             cout<<"Muchas gracias por jugar! :)"<<endl<<endl;
+            return 0;
             break;
         default:
             setColor(RED);
@@ -82,6 +84,15 @@ void menu()
     }
     while(opcion!='6');
 }
+
+void (int bloqueadores[], int tam)
+{
+    while (bloqueadores[0]==bloqueadores[1])
+    {
+
+    }
+}
+
 
 void dados(int vec[], int tam)
 {
@@ -252,6 +263,12 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
         gotoxy(20,2);
         cout << "<<RONDA " << i <<">>"<<endl<<endl;
         setColor(BLACK);
+
+        if (!original)
+        {
+          bloqManual(bloqueadores, B);
+        }
+
         dados(bloqueadores, B);
         cout<< "-----BLOQUEADORES-----"<<endl;
         cout<<"|                    |"<<endl;
@@ -290,7 +307,7 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
             }
             else
             {
-                cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                cout << "¿Desea seguir lanzando los dados?  (S/N)   ";
                 cout<<"(X Para salir al menu principal)"<<endl<<endl;
                 cin >> seguir;
                 seguir = toupper(seguir);
@@ -302,9 +319,10 @@ void singlePlayer(char nick1[], char  mejorP[], int *mayor)
                 while(seguir != 'N' && seguir != 'S')
                 {
                     cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
-                    cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                    cout << "¿Desea seguir lanzando los dados?  (S/N)   ";
                     cout<<"(X Para salir al menu principal)"<<endl<<endl;
                     cin >> seguir;
+                    seguir = toupper(seguir);
                     if(seguir == 'X')
                     {
                         menu();
@@ -426,7 +444,7 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                     }
                     else
                     {
-                        cout << "¿Desea seguir lanzando los dados?  (S/N)  "<<endl;
+                        cout << "¿Desea seguir lanzando los dados?  (S/N)  ";
                         cout<<"(X Para salir al menu principal)"<<endl<<endl;
                         cin >> seguir;
                         seguir = toupper(seguir);
@@ -437,7 +455,7 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                         while(seguir != 'N' && seguir != 'S')
                         {
                             cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
-                            cout << "¿Desea seguir lanzando los dados?  (S/N)   "<<endl;
+                            cout << "¿Desea seguir lanzando los dados?  (S/N)   ";
                             cout<<"(X Para salir al menu principal)"<<endl<<endl;
                             cin >> seguir;
                             seguir = toupper(seguir);
@@ -511,14 +529,24 @@ void multiPlayer(char nick1[], char nick2[], char mejorP[], int *mayor)
                     else
                     {
                         cout << "¿Desea seguir jugando?  (S/N)  ";
+                        cout<<"(X Para salir al menu principal)"<<endl<<endl;
                         cin >> seguir;
                         seguir = toupper(seguir);
+                        if(seguir == 'X')
+                        {
+                            menu();
+                        }
                         while(seguir != 'N' && seguir != 'S')
                         {
                             cout<<endl<<"Ingrese una opcion válida"<<endl<<endl;
                             cout << "¿Desea seguir jugando?  (S/N)   ";
+                            cout<<"(X Para salir al menu principal)"<<endl<<endl;
                             cin >> seguir;
                             seguir = toupper(seguir);
+                            if(seguir == 'X')
+                            {
+                                menu();
+                            }
 
                         }
                     }
@@ -689,6 +717,7 @@ void intro()
     cout<<" -------------------------------"<<endl<<endl;
     cout<<"|      Bienvenido a GREED!     |"<<endl<<endl;
     cout<<" -------------------------------"<<endl<<endl;
+    cout<< "Cargando..."<<endl;
     sonidoInicio();
     system("pause");
 }

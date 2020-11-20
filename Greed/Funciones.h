@@ -1,6 +1,6 @@
 #pragma once
 
-void menu();
+int menu();
 void dados(int[], int);
 void singlePlayer(char[], char[], int *);
 void multiPlayer(char[], char[], char[], int *);
